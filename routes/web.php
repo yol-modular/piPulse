@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DeviceController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ApiDocumentationController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -23,8 +24,8 @@ Route::get('/', function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+        return redirect()->route('devices.index');
+    })->middleware(['auth'])->name('dashboard');
 
     Route::get('/devices', [DeviceController::class, 'index'])->name('devices.index');
     Route::get('/devices/{device}', [DeviceController::class, 'show'])->name('devices.show');
@@ -40,5 +41,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::get('/api-documentation', [ApiDocumentationController::class, 'index'])->name('api-documentation');
 
 require __DIR__.'/auth.php';

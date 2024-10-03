@@ -12,7 +12,7 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    <x-nav-link :href="route('devices.index')" :active="request()->routeIs('devices.index')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
@@ -104,4 +104,8 @@
             {{ __('Admin Panel') }}
         </x-nav-link>
     @endif
+
+    <x-nav-link :href="route('api-documentation')" :active="request()->routeIs('api-documentation')">
+        {{ __('API Documentation') }}
+    </x-nav-link>
 </nav>
