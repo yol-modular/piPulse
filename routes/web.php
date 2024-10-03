@@ -14,4 +14,5 @@ use App\Http\Controllers\DeviceController;
 |
 */
 
-Route::get('/', [DeviceController::class, 'index']);
+Route::get('/', [DeviceController::class, 'index'])->name('devices.index');
+Route::get('/devices/{device}', [DeviceController::class, 'show'])->name('devices.show');

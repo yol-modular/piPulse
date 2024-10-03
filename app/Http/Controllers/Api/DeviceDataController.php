@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Device;
 use Illuminate\Http\Request;
+use App\Events\DeviceUpdated;
 
 class DeviceDataController extends Controller
 {
@@ -31,6 +32,8 @@ class DeviceDataController extends Controller
             $device->last_downtime = now();
             $device->save();
         }
+
+        broadcast(new DeviceUpdated($device))->toOthers();
 
         return response()->json(['message' => 'Data received successfully'], 200);
     }

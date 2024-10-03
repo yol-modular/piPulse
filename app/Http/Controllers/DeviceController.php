@@ -12,4 +12,9 @@ class DeviceController extends Controller
         $devices = Device::all();
         return view('devices.index', compact('devices'));
     }
+
+    public function show(Device $device)
+    {
+        return view('devices.show', compact('device'));
+    }
 }
