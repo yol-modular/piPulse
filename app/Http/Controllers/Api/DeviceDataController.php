@@ -28,6 +28,14 @@ class DeviceDataController extends Controller
             $validatedData
         );
 
+        // Store historical data
+        $device->historicalData()->create([
+            'cpu_usage' => $validatedData['cpu_usage'],
+            'memory_usage' => $validatedData['memory_usage'],
+            'disk_space' => $validatedData['disk_space'],
+            'temperature' => $validatedData['temperature'],
+        ]);
+
         if ($device->status === 'down' && $device->wasChanged('status')) {
             $device->last_downtime = now();
             $device->save();

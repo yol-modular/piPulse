@@ -26,4 +26,9 @@ class Device extends Model
         'last_downtime' => 'datetime',
         'running_processes' => 'array',
     ];
+
+    public function historicalData()
+    {
+        return $this->hasMany(DeviceHistoricalData::class);
+    }
 }
