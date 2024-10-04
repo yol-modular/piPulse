@@ -43,4 +43,10 @@
             </div>
         </div>
     </div>
+
+    <div class="mb-4">
+        <a href="{{ route('admin.createUser') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+            Create New User
+        </a>
+    </div>
 </x-app-layout>
