@@ -44,7 +44,7 @@
                             </thead>
                             <tbody class="bg-white divide-y divide-gray-200">
                                 @foreach($devices as $device)
-                                    <tr>
+                                    <tr class="{{ $device->status === 'down' ? 'pulse-red' : '' }}">
                                         <td class="px-6 py-4 whitespace-nowrap">{{ $device->name }}</td>
                                         <td class="px-6 py-4 whitespace-nowrap">{{ $device->location }}</td>
                                         <td class="px-6 py-4 whitespace-nowrap">

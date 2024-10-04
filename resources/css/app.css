@@ -11,3 +11,19 @@
         z-index: 50;
     }
 }
+
+@keyframes pulse-red {
+  0% {
+    background-color: #FEE2E2;
+  }
+  50% {
+    background-color: #FECACA;
+  }
+  100% {
+    background-color: #FEE2E2;
+  }
+}
+
+.pulse-red {
+  animation: pulse-red 2s infinite;
+}
